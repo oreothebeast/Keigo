@@ -1,0 +1,349 @@
+/* styles/Home.module.css */
+
+/* --- Base --- */
+
+.container {
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #1a1822;
+  background: #f7f6f9;
+}
+
+/* --- Form --- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #fff;
+  border: 1px solid #e8e6f0;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+/* --- Header toggle --- */
+
+.header {
+  display: flex;
+  gap: 10px;
+}
+
+.emailBtn,
+.callBtn {
+  flex: 1;
+  padding: 11px 0;
+  border: 1.5px solid #dddae8;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #9990b8;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.emailBtn::before,
+.callBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2d1f6e, #4b3a9e);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.emailBtn span,
+.callBtn span {
+  position: relative;
+  z-index: 1;
+}
+
+.emailBtn:hover,
+.callBtn:hover {
+  border-color: #4b3a9e;
+  color: #2d1f6e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45, 31, 110, 0.12);
+}
+
+.emailBtn:active,
+.callBtn:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.activeTypeBtn {
+  background: linear-gradient(135deg, #2d1f6e, #4b3a9e) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(45, 31, 110, 0.3);
+  transform: translateY(-1px);
+}
+
+/* --- Label --- */
+
+.form label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #9990b8;
+}
+
+/* --- Textarea --- */
+
+.form textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #1a1822;
+  background: #f7f6f9;
+  border: 1.5px solid #e8e6f0;
+  border-radius: 10px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  line-height: 1.7;
+}
+
+.form textarea:focus {
+  border-color: #4b3a9e;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(75, 58, 158, 0.08);
+}
+
+.form textarea::placeholder {
+  color: #c2bdd8;
+  font-size: 14px;
+}
+
+/* --- Submit button --- */
+
+.submitBtn {
+  align-self: stretch;
+  padding: 13px 28px;
+  background: linear-gradient(135deg, #2d1f6e, #4b3a9e);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(45, 31, 110, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #4b3a9e, #6d5bbf);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.submitBtn:hover::after {
+  opacity: 1;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 31, 110, 0.35);
+}
+
+.submitBtn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(45, 31, 110, 0.2);
+}
+
+.submitBtn:disabled {
+  background: linear-gradient(135deg, #c2bdd8, #d4d0e4);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitBtn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Result --- */
+
+.resultContainer {
+  margin-top: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: #fff;
+  border: 1px solid #e8e6f0;
+  border-radius: 16px;
+  border-left: 4px solid #c9a84c;
+}
+
+.resultContainer h2 {
+  margin: 0 0 0.75rem;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #c9a84c;
+}
+
+.resultContainer p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.85;
+  color: #1a1822;
+}
+
+/* --- Respect scale --- */
+
+.scale {
+  margin-top: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: #fff;
+  border: 1px solid #e8e6f0;
+  border-radius: 16px;
+}
+
+.scale h2 {
+  margin: 0 0 1rem;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9990b8;
+}
+
+.levelsBtn {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.levelsBtn button {
+  padding: 10px 0;
+  border: 1.5px solid #dddae8;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: #9990b8;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.levelsBtn button:hover {
+  border-color: #c9a84c;
+  color: #c9a84c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.15);
+}
+
+.levelsBtn button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.activeLevelBtn {
+  background: linear-gradient(135deg, #b8922e, #c9a84c) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35) !important;
+  transform: translateY(-1px) !important;
+}
+
+
+/* Base styles for your buttons */
+.emailBtn, .callBtn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0; /* Default gray */
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+/* The active state */
+.active {
+    background-color: #0070f3; /* Next.js Blue */
+    color: white;
+    border-color: #0056b3;
+    font-weight: bold;
+}
+
+/* Guide Container */
+.guideContainer {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    font-family: sans-serif;
+}
+
+.guideTitle {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #0070f3;
+    display: inline-block;
+}
+
+/* Individual Level Cards */
+.levelCard {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #ccc;
+}
+
+.levelCard h4 {
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.levelCard p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Color Coding */
+.casualCard { border-color: #8e8e8e; }
+.lowCard { border-color: #4caf50; }
+.mediumCard { border-color: #0070f3; }
+
+/* The "High" Warning Style */
+.highCard { 
+    border-color: #ff4d4f; 
+    background-color: #fff1f0;
+    padding: 10px 15px;
+    border-radius: 0 8px 8px 0;
+}
+
+.enText { color: #555; }
+.jpText { color: #888; font-style: italic; font-size: 0.85rem; }
+.warningLabel {
+    background: #ff4d4f;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
