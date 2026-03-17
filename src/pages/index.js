@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import { Analytics } from '@vercel/analytics/react';
+
 
 export default function Home() { // Capitalized for React conventions
     const [type, setType] = useState('email');
@@ -123,8 +125,7 @@ export default function Home() { // Capitalized for React conventions
                     <p className={styles.jpText}>極めて特殊な表現。天皇陛下や皇族に対してのみ使用されます。</p>
                 </div>
             </div>
-
-            
+            <Analytics />
         </div>
     );
 }
