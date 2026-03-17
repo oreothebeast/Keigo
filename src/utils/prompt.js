@@ -32,7 +32,7 @@ export const KEIGO_PROMPTS = {
     
 };
 
-export function generateAiPrompt(type, level, userContent) {
+export function generateAiPrompt(type, level, userContent, isChecked) {
     const base = KEIGO_PROMPTS[type];
     if(!base){
         return "Error 404 (エラー)";
@@ -45,11 +45,11 @@ export function generateAiPrompt(type, level, userContent) {
         return `
             指示: ${base.systemInstruction}
             敬語のレベル: ${levelInstruction}
-            
             コンテンツ: "${userContent}"
             もし、コンテンツが疑問形でもそれに応えるのではなく、そのまま敬語に直して。
             以下のものをお願いします:
             先ほど書いた条件を満たした返答のみを日本語で出力お願いします
+            ${isChecked? "それぞれの文の下に括弧でローマ字の文も書いて" : ""}
         `;
     }
     else if(type === "call"){
@@ -62,6 +62,7 @@ export function generateAiPrompt(type, level, userContent) {
             もし、コンテンツが疑問形でもそれに応えるのではなく、そのまま敬語に直して。
             以下のものをお願いします:
             先ほど書いた条件を満たした返答のみを日本語で出力お願いします
+            ${isChecked? "それぞれの文の下に括弧でローマ字の文も書いて" : ""}
         `;
     }
 

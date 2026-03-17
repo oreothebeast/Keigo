@@ -8,6 +8,7 @@ export default function Home() { // Capitalized for React conventions
     const [userContent, setUserContent] = useState('');
     const [result, setResult] = useState('');
     const [loading, setLoading] = useState(false);
+    const [isChecked, setIsChecked] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,7 +19,7 @@ export default function Home() { // Capitalized for React conventions
             const response = await fetch('/api/generate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ type, level, userContent }),
+                body: JSON.stringify({ type, level, userContent, isChecked }),
             });
 
             const data = await response.json();
@@ -29,7 +30,7 @@ export default function Home() { // Capitalized for React conventions
                 setResult("Error");
             }
         } catch (error) {
-            setResult("Yo Error");
+            setResult("Error");
         } finally {
             setLoading(false);
         }
@@ -43,13 +44,14 @@ export default function Home() { // Capitalized for React conventions
 
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.header}>
-                    <button type='button' onClick={() => { setType('email'); setUserContent(''); }} className={`${styles.emailBtn} ${type === 'email' ? styles.active : ''}`}>email</button>
-                    <button type='button' onClick={() => { setType('call'); setUserContent(''); }} className={`${styles.callBtn} ${type === 'call' ? styles.active : ''}`}>call</button>
+                    <button type='button' onClick={() => { setType('email'); setUserContent(''); setResult(''); setIsChecked(false);}} className={`${styles.emailBtn} ${type === 'email' ? styles.active : ''}`}>email</button>
+                    <button type='button' onClick={() => { setType('call'); setUserContent(''); setResult(''); setIsChecked(false);}} className={`${styles.callBtn} ${type === 'call' ? styles.active : ''}`}>call</button>
                 </div>
 
                 {type === 'email' && (
                     <>
                         <label>What do you want to say? / 何を言いたいですか？</label>
+                        <label className= {styles.checkbox_container}><input type = "checkbox" checked = {isChecked} onChange = {(e) => setIsChecked(e.target.checked? true : false)}/>Enable Romaji</label>
                         <textarea 
                             required 
                             value={userContent} 
@@ -62,6 +64,7 @@ export default function Home() { // Capitalized for React conventions
                 {type === 'call' && (
                     <>
                         <label>Where/What do you want to call? / どこにどのような理由で電話しますか？</label>
+                        <label className= {styles.checkbox_container}><input type = "checkbox" checked = {isChecked} onChange = {(e) => setIsChecked(e.target.checked? true : false)}/>Enable Romaji</label>
                         <textarea 
                             required 
                             value={userContent} 

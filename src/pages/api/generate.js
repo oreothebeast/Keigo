@@ -5,8 +5,8 @@ export default async function handler(req, res) {
         return res.status(405).json({ message: 'Only POST requests are allowed' });
     }
 
-    const { type, level, userContent } = req.body;
-    const fullPrompt = generateAiPrompt(type, level, userContent);
+    const { type, level, userContent, isChecked } = req.body;
+    const fullPrompt = generateAiPrompt(type, level, userContent, isChecked);
 
     try {
         // We use v1beta for the latest Gemini 3 models or v1 for stable 2.5

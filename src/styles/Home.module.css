@@ -347,3 +347,15 @@
     border-radius: 4px;
     text-transform: uppercase;
 }
+
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: sans-serif;
+  user-select: none; /* Prevents text highlighting on double click */
+}
+
+.checkbox_container input {
+  cursor: pointer;
+}
