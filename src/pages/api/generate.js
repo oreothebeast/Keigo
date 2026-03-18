@@ -1,5 +1,7 @@
 import { generateAiPrompt } from "../../utils/prompt";
 
+//I used gemini for learning the fundementals of next.js and debugging
+
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Only POST requests are allowed' });
@@ -9,7 +11,6 @@ export default async function handler(req, res) {
     const fullPrompt = generateAiPrompt(type, level, userContent, isChecked);
 
     try {
-        // We use v1beta for the latest Gemini 3 models or v1 for stable 2.5
         const response = await fetch(
             `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${process.env.GOOGLE_GENERATIVE_AI_API_KEY}`,
             {
@@ -23,7 +24,6 @@ export default async function handler(req, res) {
 
         const data = await response.json();
 
-        // Check if the API returned an error message
         if (data.error) {
             console.error("GOOGLE ERROR:", data.error.message);
             return res.status(500).json({ error: data.error.message });

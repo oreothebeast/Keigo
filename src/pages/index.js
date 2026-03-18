@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Analytics } from '@vercel/analytics/react';
 
+//I used gemini for learning the fundementals of react and debugging
 
 export default function Home() { // Capitalized for React conventions
     const [type, setType] = useState('email');
@@ -32,7 +33,11 @@ export default function Home() { // Capitalized for React conventions
                 setResult("Error");
             }
         } catch (error) {
-            setResult("Error");
+            if (response.status == 504 || response.status === 500) {
+                setResult("The server is busy right now, please try again later.")
+            }else{
+                setResult("Error");
+            }
         } finally {
             setLoading(false);
         }
