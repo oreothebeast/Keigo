@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Analytics } from '@vercel/analytics/react';
+import { keigoData } from './data/keigoData';
+import Link from "next/link";
 
 //I used gemini for learning the fundementals of react and debugging
 
@@ -12,6 +14,10 @@ export default function Home() { // Capitalized for React conventions
     const [result, setResult] = useState('');
     const [loading, setLoading] = useState(false);
     const [isChecked, setIsChecked] = useState(false)
+    const [showAll, setShowAll] = useState(false);
+    const INITIAL_COUNT = 4;
+    const keys = Object.keys(keigoData);
+    const visibleKeys = showAll ? keys : keys.slice(0, INITIAL_COUNT);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -130,6 +136,35 @@ export default function Home() { // Capitalized for React conventions
                     <p className={styles.jpText}>極めて特殊な表現。天皇陛下や皇族に対してのみ使用されます。</p>
                 </div>
             </div>
+
+            <section className="keigo-guides-container">
+                <h2 className={styles.guidesTitle}>Popular Keigo Guides</h2>
+                <div className={styles.guidesContainer}>
+                    {visibleKeys.map((key) => (
+                    <Link key={key} href={`/phrase/${key}`} className={styles.guideCard}>
+                        <div className={styles.guideCardContent}>
+                        <span className={styles.guideTag}>{keigoData[key].type}</span>
+                        <h3 className={styles.guideText}>
+                            {keigoData[key].title
+                            .replace("How to say ", "")
+                            .replace(" in Keigo", "")}
+                        </h3>
+                        <span className={styles.guideArrow}>→</span>
+                        </div>
+                    </Link>
+                    ))}
+                </div>
+
+                {keys.length > INITIAL_COUNT && (
+                    <button
+                    className={styles.seeMoreBtn}
+                    onClick={() => setShowAll((prev) => !prev)}
+                    >
+                    {showAll ? "Show less ↑" : `See all ${keys.length} guides ↓`}
+                    </button>
+                )}
+            </section>
+
             <Analytics />
         </div>
     );

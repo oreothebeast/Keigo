@@ -360,3 +360,412 @@
 .checkbox_container input {
   cursor: pointer;
 }
+
+/* styles/PhraseDetail.module.css */
+/* Matches the Keigo-its design system — purple/gold palette */
+
+/* --- Page Wrapper --- */
+
+.page {
+  min-height: 100vh;
+  background: #f7f6f9;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #1a1822;
+}
+
+/* --- Main Content --- */
+
+.main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+}
+
+/* --- Breadcrumb Nav --- */
+
+.breadcrumb {
+  margin-bottom: 2rem;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #9990b8;
+}
+
+.breadcrumb a {
+  color: #9990b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #4b3a9e;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+  opacity: 0.5;
+}
+
+/* --- Article Title --- */
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: #1a1822;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+/* --- Phrase Card (mirrors .resultContainer / .scale) --- */
+
+.phraseCard {
+  background: #fff;
+  border: 1px solid #e8e6f0;
+  border-radius: 16px;
+  border-left: 4px solid #c9a84c;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Type Badge (mirrors level label style) --- */
+
+.typeBadge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background: linear-gradient(135deg, #b8922e, #c9a84c);
+  padding: 4px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(201, 168, 76, 0.3);
+}
+
+/* --- Copy Button --- */
+
+.copyBtn {
+  background: transparent;
+  border: 1.5px solid #dddae8;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9990b8;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copyBtn:hover {
+  border-color: #c9a84c;
+  color: #c9a84c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.15);
+}
+
+.copyBtn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* --- Japanese Phrase Text --- */
+
+.japanese {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 600;
+  color: #1a1822;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+
+/* --- English Translation --- */
+
+.english {
+  font-size: 15px;
+  color: #9990b8;
+  font-style: italic;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* --- Context Section (mirrors .scale card) --- */
+
+.contextSection {
+  background: #fff;
+  border: 1px solid #e8e6f0;
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9990b8;
+  margin: 0 0 0.85rem;
+}
+
+.contextText {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #1a1822;
+  margin: 0;
+}
+
+/* --- CTA Block (mirrors .submitBtn gradient) --- */
+
+.cta {
+  margin-top: 2.5rem;
+  background: linear-gradient(135deg, #2d1f6e, #4b3a9e);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 8px 32px rgba(45, 31, 110, 0.25);
+}
+
+.ctaTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.ctaSubtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+}
+
+.ctaBtn {
+  display: inline-block;
+  background: #fff;
+  color: #2d1f6e;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.ctaBtn:hover {
+  background: #f0eeff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ctaBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* --- Footer --- */
+
+.footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e8e6f0;
+  text-align: center;
+  font-size: 12px;
+  color: #c2bdd8;
+  letter-spacing: 0.03em;
+}
+
+/* --- Not Found State --- */
+
+.notFound {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: #f7f6f9;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.notFound h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1a1822;
+  margin: 0 0 0.5rem;
+}
+
+.notFound p {
+  color: #9990b8;
+  font-size: 15px;
+  margin: 0 0 2rem;
+}
+
+.notFound a {
+  color: #fff;
+  background: linear-gradient(135deg, #2d1f6e, #4b3a9e);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(45, 31, 110, 0.25);
+  transition: all 0.25s ease;
+}
+
+.notFound a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 31, 110, 0.35);
+}
+
+/* --- Keigo Guides Section --- */
+
+.keigo-guides-container {
+  margin-top: 2rem;
+  padding: 1.75rem 2rem;
+  background: #fff;
+  border: 1px solid #e8e6f0;
+  border-radius: 16px;
+}
+
+.guidesTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9990b8;
+  margin: 0 0 1.25rem;
+}
+
+.guidesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* --- Card --- */
+
+.guideCard {
+  display: block;
+  text-decoration: none;
+  background: #f7f6f9;
+  border: 1.5px solid #e8e6f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.guideCard:hover {
+  border-color: #4b3a9e;
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(45, 31, 110, 0.12);
+}
+
+.guideCard:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* --- Card Inner Layout --- */
+
+.guideCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* --- Type Tag --- */
+
+.guideTag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c9a84c;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 20px;
+  padding: 3px 10px;
+  align-self: flex-start;
+}
+
+/* --- Title --- */
+
+.guideText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1822;
+  line-height: 1.45;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.guideCard:hover .guideText {
+  color: #2d1f6e;
+}
+
+/* --- Arrow --- */
+
+.guideArrow {
+  font-size: 14px;
+  color: #c2bdd8;
+  transition: all 0.2s ease;
+  align-self: flex-end;
+}
+
+.guideCard:hover .guideArrow {
+  color: #4b3a9e;
+  transform: translateX(3px);
+}
+
+/* --- See More Button --- */
+
+.seeMoreBtn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px 0;
+  background: transparent;
+  border: 1.5px solid #dddae8;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9990b8;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.seeMoreBtn:hover {
+  border-color: #4b3a9e;
+  color: #4b3a9e;
+  background: #f7f6f9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45, 31, 110, 0.1);
+}
+
+.seeMoreBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 480px) {
+  .guidesContainer {
+    grid-template-columns: 1fr;
+  }
+}
