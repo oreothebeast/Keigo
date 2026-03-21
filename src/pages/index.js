@@ -53,6 +53,7 @@ export default function Home() { // Capitalized for React conventions
         <div className={styles.container}>
             <Head>
                 <title>Keigo-its | AI Japanese Assistant</title>
+                <meta name="google-site-verification" content="rbfZ87b_WIpAZxJW9W4JHUxqfr_zbo2i0M_7IaFgJUk" />
             </Head>
 
             <form onSubmit={handleSubmit} className={styles.form}>
