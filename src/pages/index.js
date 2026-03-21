@@ -54,6 +54,9 @@ export default function Home() { // Capitalized for React conventions
             <Head>
                 <title>Keigo-its | AI Japanese Assistant</title>
                 <meta name="google-site-verification" content="rbfZ87b_WIpAZxJW9W4JHUxqfr_zbo2i0M_7IaFgJUk" />
+                <meta name="description" content="Instantly convert English or Japanese text into formal Keigo. Perfect for business emails, professional settings, and language learners." />
+                <link rel="icon" href="/icon.png" />
+                <link rel="apple-touch-icon" href="/icon.png" />
             </Head>
 
             <form onSubmit={handleSubmit} className={styles.form}>
