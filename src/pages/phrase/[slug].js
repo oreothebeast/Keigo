@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../../styles/Home.module.css";
-import { keigoData } from "../../keigoData"; // adjust path as needed
+import { keigoData } from "../../data/keigoData"; // adjust path as needed
 
 export default function PhraseDetail() {
   const router = useRouter();

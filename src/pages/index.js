@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Analytics } from '@vercel/analytics/react';
-import { keigoData } from './data/keigoData';
+import { keigoData } from '../data/keigoData';
 import Link from "next/link";
 
 //I used gemini for learning the fundementals of react and debugging
